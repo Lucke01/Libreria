@@ -3,26 +3,16 @@ from django.shortcuts import render,HttpResponse
 
 #view inicio 
 def home(request):
-    return HttpResponse('''
-                        <title> Inicio </title>
-                        <h1> inicio </h1>''')
-
+    return render(request, 'Core/inicio.html')
 #view de libros con su genero
 def libros(request):
-    return HttpResponse('''
-                        <title> libros </title>
-                        <h1> Libros </h1>''')
+    return render(request, 'Core/libros.html')
 
 #view autores
-def autor(reauest):
-    return HttpResponse('''
-                        <title> autor </title>
-                        <h1> autor </h1>''')
+def autor(request):
+    return render(request, 'Core/autor.html')
 
 #view de clientes (datos)
 def clientes(request):
-    return HttpResponse('''
-                        <title> clientes </title>
-                        <h1> clientes </h1>''')
-
+    return render(request, 'Core/clientes.html')
 
