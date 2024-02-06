@@ -4,11 +4,11 @@ class Libro(models.Model):
     titulo = models.CharField(max_length = 50)
     autor = models.CharField(max_length = 50)
     genero = models.CharField(max_length = 60)
-    publicado = models.DateField()
+    
 
     #metodo descriptivo
     def __str__(self):
-        return self.titulo +'-'+ self.autor + '-' + self.publicado
+        return self.titulo +'-'+ self.autor
     
     #ordenar
     class Meta:
