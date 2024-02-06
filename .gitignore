@@ -7,3 +7,5 @@ __pycache__/
 *.py[cod]
 *$py.class
 Libreria\models\migrations
+Libreria/models/migrations/0002_alter_libro_publicado.py
+Libreria/models/migrations/0003_remove_libro_publicado.py
