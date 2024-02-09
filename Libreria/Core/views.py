@@ -16,3 +16,7 @@ def autor(request):
 def clientes(request):
     return render(request, 'Core/clientes.html')
 
+#view de contacto
+def contacto(request):
+    return render(request, 'Core/contacto.html')
+
