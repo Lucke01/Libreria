@@ -40,7 +40,7 @@ INSTALLED_APPS = [
     #agregamos apps
     'Core',
     'models.apps.ModelsConfig',
-    'api.apps.ModelsConfig',
+    'api.apps.ApiConfig',
 ]
 
 MIDDLEWARE = [

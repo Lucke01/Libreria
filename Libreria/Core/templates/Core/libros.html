@@ -11,6 +11,25 @@
     <h1> Libros </h1>
 {% endblock %}
 
-{% block formularios %}
-    
-{% endblock%}
+    {% block formularios %}
+        <h1 style="color: rgb(49, 49, 49);"> Ingrese los datos del libro </h1>
+
+        {% if libro_form.error %}
+            <p style = "color: red;"> Los datos estan mal, revisar</p>
+        {% endif %}
+
+
+
+
+
+
+        <form action="{% url 'Core:Libros' %}",method='POST'>{% csrf_token %}
+
+
+                {{ libroForm.as_p }}
+
+            <input type="submit", value="Enviar">
+
+        </form>
+
+{% endblock %}
