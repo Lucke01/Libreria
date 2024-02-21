@@ -13,5 +13,23 @@
 
 
 {% block formularios %}
+    {% if autorForm.error %}
+        <p style="color: red;"> Están mal los datos, revisar</p>
+    {% endif%}
+
+    <h1 style="color: rgb(49, 49, 49);"> Ingrese los datos del autor </h1>
+
+
+    <form action="{% url 'Core:Autor' %}",method='POST'>{% csrf_token %}
+
+            {{ autorForm.as_p }}
+        
+        <input type="submit",value="Enviar">
     
+    </form>
+
+
 {% endblock%}
+
+
+

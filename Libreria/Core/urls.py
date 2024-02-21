@@ -3,8 +3,11 @@ from Core import views
 
 urlpatterns = [
     path('',views.home , name = 'Home'),
-    path('libros/',views.libros, name ='Libros'),
-    path('autor/',views.autor, name ='Autor'),
-    path('clientes/',views.clientes, name ='Clientes'),
-    path('contacto/',views.contacto, name = 'Contacto'),
+    path('libros',views.libros, name ='Libros'),
+    path('autor',views.autor, name ='Autor'),
+    path('clientes',views.clientes, name ='Clientes'),
+    path('contacto',views.contacto, name = 'Contacto'),
+    
+    #-------------------------------CRUD MODELS-----------------
+    
 ]

@@ -1,8 +1,8 @@
 from django.shortcuts import render,HttpResponse
 #import formularios
-from api.forms import Libro_formulario
+from api.forms import *
 #import models
-from models.models import Libro
+from models.models import Libro,Autor
 #view inicio 
 def home(request):
     return render(request, 'Core/inicio.html')
@@ -24,7 +24,7 @@ def libros(request):
             #guardamos el objeto
             libro.save()
             #vuelvo al inicio
-            return render(request, 'Core/inicio.html')
+        return render(request, 'Core/inicio.html')
     else:
         #formulario vacio
         libroForm = Libro_formulario()
@@ -33,15 +33,30 @@ def libros(request):
     return render(request, "Core/libros.html", {"libroForm":libroForm})
 #-----------------------------------------------------------------------------------------------------------#
 
-
-
 #view autores
 def autor(request):
-    return render(request, 'Core/autor.html')
+    #creo formulario
+    if request.method == 'POST':
+        autorForm = Autor_formulario(request.POST)
+        print(autorForm)
+        #en caso que sea valido =>
+        if autorForm.is_valid():
+            #crear form vacio
+            data = autorForm.cleaned_data()
+            #guardamos objeto
+            autor = Autor(nombre = data['nombre'], apellido = data['apellido'], nacimiento = data['nacimiento'])
+            autor.save()
+            #volvemos al inicio
+        return render(request,'Core/inicio.html')
+    else:
+        #form vacio
+        autorForm = Autor_formulario()
+    return render (request,'Core/autor.html',{"autorForm":autorForm})
+#------------------------------------------------------------------------------------------------------------------------
 
-#view de clientes (datos)
+# view de clientes (datos)
 def clientes(request):
-    return render(request, 'Core/clientes.html')
+        return render(request, 'Core/clientes.html')
 
 #view de contacto
 def contacto(request):
